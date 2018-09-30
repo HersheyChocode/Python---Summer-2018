@@ -1,0 +1,23 @@
+import random #Imports the random function for the computer to generate a random number
+print("Let's test your mind reading skills! I'm thinking of a number between 0 and 100") #Tells user "backstory"
+
+generatedNumber = random.randrange(0,101) #Computer generates a random number from 1 to 101
+numberOfGuesses = 1 #To track how many guesses it took the user
+
+while True: #Repeats until we break the code
+    inputtedNumber = int(input("Enter a guess:")) #User's inputted number
+    
+    if inputtedNumber==generatedNumber: #If the user answered correctly
+        if numberOfGuesses<5: #And if the user answered within five guesses
+            print("Congrats! You won, and it took you less than 5 chances! To be specific, it took you", numberOfGuesses,"chances! You are an excellent mind reader") #Prints this winning statement
+        else: #If user answered in more than five guesses 
+            print("Congrats! You won! It took you", numberOfGuesses, "guesses! Try to make it less than", numberOfGuesses, "in your next try!") #Prints this winning statement
+        break #break the loop so that it won't keep running
+        
+    elif inputtedNumber>generatedNumber: #If the user's inputted number is too high
+        print("Sorry, but", inputtedNumber, "is too high.") #Prints that the inputted number is too high
+        numberOfGuesses+=1 #Makes the number of guesses go up by one
+        
+    else: #If the user's inputted number is too low
+        print("Sorry, but", inputtedNumber, "is too low.") #Prints that the inputted number is too low
+        numberOfGuesses+=1 #Makes the number of guesses go up by one
